@@ -105,7 +105,7 @@ function Header() {
                 <div className="header__action d-flex justify-content-end">
                   <a
                     className="header__get__whatsapp"
-                    href="https://wa.me/919821219819?text="
+                    href="tel:+919821219819"
                     target="_blank"
                   >
 
