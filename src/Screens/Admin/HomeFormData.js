@@ -7,8 +7,10 @@ function HomeFormData({ person, personIdx, deleteBtnClick, viewBtnClick }) {
       key={person.email}
       className={personIdx % 2 === 0 ? "bg-white" : "bg-gray-50"}
     >
-      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-        {person.date ? d.toDateString() : "No Date"}
+     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+        {person.date 
+          ? `${d.toDateString()} ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}` 
+          : "No Date"}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
         {person.name}

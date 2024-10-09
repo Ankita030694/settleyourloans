@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import PELoader from "../../Screens/Utils/PELoader";
 
 
-function ContactFormData({ person, personIdx }) {
+function ContactFormData({ person, personIdx, deleteBtnClick }) {
   const [loader, setLoader] = useState(false);
   const d = new Date(person.created);
   return (
@@ -15,7 +15,9 @@ function ContactFormData({ person, personIdx }) {
       className={personIdx % 2 === 0 ? "bg-white" : "bg-gray-50"}
     >
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-        {person.created ? d.toDateString() : "No Date"}
+      {person.created
+          ? `${d.toDateString()} ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}` 
+          : "No Date"}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
         {person['Name']}
@@ -61,6 +63,16 @@ function ContactFormData({ person, personIdx }) {
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
         {person['question11']}
+      </td>
+      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+        <a
+          href="#"
+          id={person.id}
+          onClick={deleteBtnClick}
+          className="text-red-600 font-bold hover:text-red-900"
+        >
+          Delete
+        </a>
       </td>
     </tr>
     
